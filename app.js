@@ -11,5 +11,7 @@ var app = new expressServer();
 var server = http.createServer(app.expressServer);
 var Io = new socketIO({server:server});
 
-server.listen(conf.port);
-console.log('escuchando el puerto', conf.port);
+var port = Number(process.env.PORT || 9000);
+
+server.listen(port);
+console.log('escuchando el puerto', port);
